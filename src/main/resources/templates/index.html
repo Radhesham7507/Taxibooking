@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+	<head>
+		<title>Home</title>
+		<meta charset="utf-8">
+		<meta name = "format-detection" content = "telephone=no" />
+		<link rel="icon" href="images/favicon.ico">
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" href="booking/css/booking.css">
+		<link rel="stylesheet" href="css/camera.css">
+		<link rel="stylesheet" href="css/owl.carousel.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery-migrate-1.2.1.js"></script>
+		<script src="js/script.js"></script>
+		<script src="js/superfish.js"></script>
+		<script src="js/jquery.ui.totop.js"></script>
+		<script src="js/jquery.equalheights.js"></script>
+		<script src="js/jquery.mobilemenu.js"></script>
+		<script src="js/jquery.easing.1.3.js"></script>
+		<script src="js/owl.carousel.js"></script>
+		<script src="js/camera.js"></script>
+		<!--[if (gt IE 9)|!(IE)]><!-->
+		<script src="js/jquery.mobile.customized.min.js"></script>
+		<!--<![endif]-->
+		<script src="booking/js/booking.js"></script>
+		<script>
+			$(document).ready(function(){
+				jQuery('#camera_wrap').camera({
+					loader: false,
+					pagination: false ,
+					minHeight: '444',
+					thumbnails: false,
+					height: '28.28125%',
+					caption: true,
+					navigation: true,
+					fx: 'mosaic'
+				});
+				$().UItoTop({ easingType: 'easeOutQuart' });
+			});
+		</script>
+		<!--[if lt IE 8]>
+			<div style=' clear: both; text-align:center; position: relative;'>
+				<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+					<img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+				</a>
+			</div>
+			<![endif]-->
+		<!--[if lt IE 9]>
+			<script src="js/html5shiv.js"></script>
+			<link rel="stylesheet" media="screen" href="css/ie.css">
+		<![endif]-->
+	</head>
+	<body class="page1" id="top">
+		<div class="main">
+<!--==============================header=================================-->
+
+   <div th:insert="~{fragments/header.html}"></div>
+
+<!--==============================header=================================-->
+			
+			<div class="slider_wrapper ">
+				<div id="camera_wrap" class="">
+					<div data-src="images/slide.jpg" ></div>
+					<div data-src="images/slide1.jpg" ></div>
+					<div data-src="images/slide2.jpg"></div>
+				</div>
+			</div>
+			<div class="container_12">
+				<div class="grid_4">
+					<div class="banner">
+						<div class="maxheight">
+							<div class="banner_title">
+								<img src="images/icon1.png" alt="">
+								<div class="extra_wrapper">Fast&amp;
+									<div class="color1">Safe</div>
+								</div>
+							</div>
+							Experience top-notch service that's not only swift but also prioritizes your safety at every step.
+							Trust us for reliable, efficient, and secure results every time.
+							<br>
+							<br>
+							<a href="cars" class="fa fa-share-square"></a>
+						</div>
+					</div>
+				</div>
+				<div class="grid_4">
+					<div class="banner">
+						<div class="maxheight">
+							<div class="banner_title">
+								<img src="images/icon2.png" alt="">
+								<div class="extra_wrapper">Best
+									<div class="color1">Prices</div>
+								</div>
+							</div>
+							Unbeatable Prices, Unmatched Service.
+							Get the best deals on  cars with our top-rated customer service.
+							Drive away with confidence, knowing you’ve made the best choice at the best price.
+							<br>
+							
+							
+							<a href="service" class="fa fa-share-square"></a>
+						</div>
+					</div>
+				</div>
+				<div class="grid_4">
+					<div class="banner">
+						<div class="maxheight">
+							<div class="banner_title">
+								<img src="images/icon3.png" alt="">
+								<div class="extra_wrapper">Package
+									<div class="color1">Delivery</div>
+								</div>
+							</div>
+							Fast and Reliable Package Delivery, Anytime, Anywhere.
+							Our top-tier service ensures your package arrives on time, every time.
+							Trust us for seamless,worry-free deliveries,making your experience the best in the business.	
+							
+							<a href="service" class="fa fa-share-square"></a>
+						</div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="c_phone">
+				<div class="container_12">
+					<div class="grid_12">
+						<div class="fa fa-phone"></div>+91 7350678301
+						<span>BOOK NOW!</span>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+<!--==============================Content=================================-->
+			<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - April 07, 2014!</div>
+				<div class="container_12">
+					<div class="grid_5">
+						
+						
+						
+						<h3>Booking Form</h3>
+						<h3 style="color:green" th:text="${message}"></h3>
+						<form id="bookingForm" th:action=@{bookingform} method="post" th:object="${bookingForm}">
+							<div class="fl1">
+								<div class="tmInput">
+									<input name="name" placeHolder="Name:" th:value="${bookingForm.name}" type="text" data-constraints='@NotEmpty @Required @AlphaSpecial'>
+									<span style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+								</div>
+								<div class="tmInput">
+									<input name="source" placeHolder="From:" th:value="${bookingForm.source}" type="text" data-constraints="@NotEmpty @Required ">
+									<span style="color:red" th:if="${#fields.hasErrors('source')}" th:errors="*{source}"></span>
+								</div>
+							</div>
+							<div class="fl1">
+								<div class="tmInput">
+									<input name="email" placeHolder="Email:" th:value="${bookingForm.email}" type="text" data-constraints="@NotEmpty @Required @Email">
+									<span style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+								</div>
+								<div class="tmInput mr0">
+									<input name="destination" placeHolder="To:" type="text" th:value="${bookingForm.destination}" data-constraints="@NotEmpty @Required">
+									<span style="color:red" th:if="${#fields.hasErrors('destination')}" th:errors="*{destination}"></span>
+								</div>
+							</div>
+							<div class="clear"></div>
+							<strong>Time</strong>
+							<div class="tmInput">
+								<input name="time" placeHolder="" type="time" th:value="${bookingForm.time}" data-constraints="@NotEmpty @Required">
+								<span style="color:red" th:if="${#fields.hasErrors('time')}" th:errors="*{time}"></span>
+							</div>
+							<div class="clear"></div>
+							<strong>Date</strong>
+							<label >
+								<input type="date" name="date" th:value="${bookingForm.date}"	 data-constraints="@NotEmpty @Required @Date">
+								<span style="color:red" th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></span>
+							</label>
+							<span style="color:red" th:if="${#fields.hasErrors('comfort')}" th:errors="*{comfort}"></span>
+							<div class="clear"></div>
+							<div class="tmRadio">
+								<p>Comfort</p>
+								<input name="comfort" value="cheap" th:checked="${bookingForm.comfort=='cheap'}" type="radio" id="tmRadio0" data-constraints='@RadioGroupChecked(name="Comfort", groups=[RadioGroup])' checked/>
+								<span>Cheap</span>
+								<input name="comfort" value="standard" th:checked="${bookingForm.comfort=='standard'}" type="radio" id="tmRadio1" data-constraints='@RadioGroupChecked(name="Comfort", groups=[RadioGroup])' />
+								<span>Standard</span>
+								<input name="comfort" value="lux" th:checked="${bookingForm.comfort=='lux'}" type="radio" id="tmRadio2" data-constraints='@RadioGroupChecked(name="Comfort", groups=[RadioGroup])' />
+								<span>Lux</span>
+							</div>
+							
+							
+							<div class="clear"></div>
+							<div class="fl1 fl2">
+								<em>Adults</em>
+								<span style="color:red" th:if="${#fields.hasErrors('adult')}" th:errors="*{adult}"></span>
+								<select name="adult" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
+									<option th:selected="${bookingForm.adult==1}">1</option>
+									<option>1</option>
+									<option th:selected="${bookingForm.adult==2}">2</option>
+									<option th:selected="${bookingForm.adult==3}">3</option>
+									<option th:selected="${bookingForm.adult==4}">4</option>  
+								</select>
+								<div class="clear height1"></div>
+							</div>
+							<span style="color:red" th:if="${#fields.hasErrors('children')}" th:errors="*{children}"></span>
+							<div class="fl1 fl2">
+								<em>Children</em>
+								<select name="children" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
+									<option th:selected="${bookingForm.children==0}">0</option>
+									<option >0</option>
+									<option th:selected="${bookingForm.children==1}">1</option>
+									<option th:selected="${bookingForm.children==2}">2</option>
+									<option th:selected="${bookingForm.children==3}">3</option>
+								</select>
+							</div>
+							<div class="clear"></div>
+							<div class="tmTextarea">
+								<textarea name="message" th:text="${bookingForm.message}" placeHolder="Message" data-constraints='@NotEmpty @Required @Length(min=20,max=999999)'></textarea>
+								<span style="color:red" th:if="${#fields.hasErrors('message')}" th:errors="*{message}"></span>
+							</div>
+							<button class="btn">Submit</button>
+						</form>
+						
+						
+						
+						
+						
+					</div>
+					<div class="grid_6 prefix_1">
+						<a href="index2.html" class="type"><img src="images/page1_img1.jpg" alt=""><span class="type_caption">Economy</span></a>
+						<a href="index2.html" class="type"><img src="images/page1_img2.jpg" alt=""><span class="type_caption">Standard</span></a>
+						<a href="index2.html" class="type"><img src="images/page1_img3.jpg" alt=""><span class="type_caption">Lux</span></a>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+<!--==============================footer=================================-->
+
+          <div th:insert="~{fragments/footer.html}"></div> 
+
+<!--==============================footer=================================-->
+		
+		<script>
+			$(function (){
+				$('#bookingForm').bookingForm({
+					ownerEmail: '#'
+				});
+			})
+			$(function() {
+				$('#bookingForm input, #bookingForm textarea').placeholder();
+			});
+		</script>
+	</body>
+</html>
