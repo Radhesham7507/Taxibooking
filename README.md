@@ -1,3 +1,4 @@
+# Taxibooking
 ### Architecture Diagrams
 
 **Frontend & Backend Structure**
@@ -11,7 +12,7 @@
 ![logo](https://github.com/Radhesham7507/Taxibooking/blob/master/taixbookingSUD_frantend-.png)
 
 
-# Taxibooking
+
 
 
 Taxibooking is a project built with **Spring Boot** for the backend. This guide provides step-by-step instructions on setting up the project, running it locally, and deploying it on **AWS**.
