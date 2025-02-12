@@ -1,4 +1,18 @@
+### Architecture Diagrams
+
+**Frontend & Backend Structure**
+
+**This is Backend Structure in Sequence Diagram**
+![logo](https://github.com/Radhesham7507/Taxibooking/blob/master/taixbookingSUD_Backend.png)
+
+**This is Frantend Structure in Sequence Diagram**
+<br>
+
+![logo](https://github.com/Radhesham7507/Taxibooking/blob/master/taixbookingSUD_frantend-.png)
+
+
 # Taxibooking
+
 
 Taxibooking is a project built with **Spring Boot** for the backend. This guide provides step-by-step instructions on setting up the project, running it locally, and deploying it on **AWS**.
 
@@ -122,6 +136,8 @@ sudo systemctl enable nginx
 Update the NGINX config to proxy requests to `localhost:8080`.
 
 ---
+
+
 
 ## Contributing
 Feel free to contribute by creating issues or submitting pull requests.
