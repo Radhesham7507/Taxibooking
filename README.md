@@ -1,4 +1,6 @@
 # Taxibooking
+<img src="https://github.com/Radhesham7507/Taxibooking/blob/master/taxibooking.png">
+
 ### Architecture Diagrams
 
 **Frontend & Backend Structure**
